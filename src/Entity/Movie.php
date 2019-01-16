@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,6 +37,27 @@ class Movie
      * @ORM\Column(type="text", nullable=true)
      */
     private $synopsis;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Genre", inversedBy="movies")
+     */
+    private $genre;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Actor", inversedBy="movies")
+     */
+    private $actor;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Production", inversedBy="movies")
+     */
+    private $production;
+
+    public function __construct()
+    {
+        $this->genre = new ArrayCollection();
+        $this->actor = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -85,6 +108,70 @@ class Movie
     public function setSynopsis(?string $synopsis): self
     {
         $this->synopsis = $synopsis;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Genre[]
+     */
+    public function getGenre(): Collection
+    {
+        return $this->genre;
+    }
+
+    public function addGenre(Genre $genre): self
+    {
+        if (!$this->genre->contains($genre)) {
+            $this->genre[] = $genre;
+        }
+
+        return $this;
+    }
+
+    public function removeGenre(Genre $genre): self
+    {
+        if ($this->genre->contains($genre)) {
+            $this->genre->removeElement($genre);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Actor[]
+     */
+    public function getActor(): Collection
+    {
+        return $this->actor;
+    }
+
+    public function addActor(Actor $actor): self
+    {
+        if (!$this->actor->contains($actor)) {
+            $this->actor[] = $actor;
+        }
+
+        return $this;
+    }
+
+    public function removeActor(Actor $actor): self
+    {
+        if ($this->actor->contains($actor)) {
+            $this->actor->removeElement($actor);
+        }
+
+        return $this;
+    }
+
+    public function getProduction(): ?Production
+    {
+        return $this->production;
+    }
+
+    public function setProduction(?Production $production): self
+    {
+        $this->production = $production;
 
         return $this;
     }

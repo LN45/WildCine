@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,6 +32,16 @@ class Genre
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $fantastic;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Movie", mappedBy="genre")
+     */
+    private $movies;
+
+    public function __construct()
+    {
+        $this->movies = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -68,6 +80,34 @@ class Genre
     public function setFantastic(?bool $fantastic): self
     {
         $this->fantastic = $fantastic;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Movie[]
+     */
+    public function getMovies(): Collection
+    {
+        return $this->movies;
+    }
+
+    public function addMovie(Movie $movie): self
+    {
+        if (!$this->movies->contains($movie)) {
+            $this->movies[] = $movie;
+            $movie->addGenre($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMovie(Movie $movie): self
+    {
+        if ($this->movies->contains($movie)) {
+            $this->movies->removeElement($movie);
+            $movie->removeGenre($this);
+        }
 
         return $this;
     }
