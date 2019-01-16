@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,6 +32,16 @@ class Actor
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $birthdate;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Movie", mappedBy="actor")
+     */
+    private $movies;
+
+    public function __construct()
+    {
+        $this->movies = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -68,6 +80,34 @@ class Actor
     public function setBirthdate(?\DateTimeInterface $birthdate): self
     {
         $this->birthdate = $birthdate;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Movie[]
+     */
+    public function getMovies(): Collection
+    {
+        return $this->movies;
+    }
+
+    public function addMovie(Movie $movie): self
+    {
+        if (!$this->movies->contains($movie)) {
+            $this->movies[] = $movie;
+            $movie->addActor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMovie(Movie $movie): self
+    {
+        if ($this->movies->contains($movie)) {
+            $this->movies->removeElement($movie);
+            $movie->removeActor($this);
+        }
 
         return $this;
     }
