@@ -22,11 +22,6 @@ class Movie
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $genre;
-
-    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $year;
@@ -54,18 +49,6 @@ class Movie
     public function setTitle(string $title): self
     {
         $this->title = $title;
-
-        return $this;
-    }
-
-    public function getGenre(): ?string
-    {
-        return $this->genre;
-    }
-
-    public function setGenre(?string $genre): self
-    {
-        $this->genre = $genre;
 
         return $this;
     }
