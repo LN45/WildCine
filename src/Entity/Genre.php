@@ -19,19 +19,9 @@ class Genre
     private $id;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
-    private $comedy;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
-    private $action;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
-    private $fantastic;
+    private $type;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Movie", mappedBy="genre")
@@ -48,39 +38,21 @@ class Genre
         return $this->id;
     }
 
-    public function getComedy(): ?bool
+    /**
+     * @return mixed
+     */
+    public function getType()
     {
-        return $this->comedy;
+        return $this->type;
     }
 
-    public function setComedy(?bool $comedy): self
+    /**
+     * @param mixed $type
+     * @return Genre
+     */
+    public function setType($type)
     {
-        $this->comedy = $comedy;
-
-        return $this;
-    }
-
-    public function getAction(): ?bool
-    {
-        return $this->action;
-    }
-
-    public function setAction(?bool $action): self
-    {
-        $this->action = $action;
-
-        return $this;
-    }
-
-    public function getFantastic(): ?bool
-    {
-        return $this->fantastic;
-    }
-
-    public function setFantastic(?bool $fantastic): self
-    {
-        $this->fantastic = $fantastic;
-
+        $this->type = $type;
         return $this;
     }
 
