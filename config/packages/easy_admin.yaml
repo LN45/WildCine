@@ -5,3 +5,5 @@ easy_admin:
         - App\Entity\Actor
         - App\Entity\Genre
         - App\Entity\Production
+    design:
+        brand_color: '#1ABC9C'
