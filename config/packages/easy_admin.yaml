@@ -12,6 +12,7 @@ easy_admin:
             form:
                 fields:
                     - { property: 'title', type: 'text', label: 'Titre' }
+                    - { property: 'image', type: 'text', label: 'Image' }
                     - { property: 'year',  label: 'Année de production', type_options: { widget: 'single_text' }}
                     - { property: 'critics', label: 'Notes spectateurs' }
                     - { property: 'synopsis', label: 'Synopsis' }
