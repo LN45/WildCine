@@ -1,31 +1,57 @@
 easy_admin:
+    formats:
+        date: 'd/m/Y'
+        number: '%0.1f'
     entities:
         Movie:
             class: App\Entity\Movie
+            label: 'Films'
+            list:
+                title: "Liste des films"
+                fields: [{ property: 'id', label: 'Id' }, { property: 'title', label: 'Titre' }, { property: 'year', label: 'Date de sortie' }, { property: 'critics', label: 'Note' }, { property: 'actor', label: 'Acteurs' }, { property: 'genre', label: 'Genre' }, { property: 'synopsis', label: 'Synopsis' }]
             form:
                 fields:
                     - { property: 'title', type: 'text', label: 'Titre' }
-                    - { property: 'year', label: 'Année de production' }
-                    - { property: 'critics', label: 'Critiques' }
+                    - { property: 'year',  label: 'Année de production', type_options: { widget: 'single_text' }}
+                    - { property: 'critics', label: 'Notes spectateurs' }
                     - { property: 'synopsis', label: 'Synopsis' }
-                    - { property: 'genre', type: 'easyadmin_autocomplete', type_options: { class: 'App\Entity\Movie' } }
+                    - { property: 'production', label: 'Production', type: 'entity', type_options: { choice_label: 'name' } }
+                    - { property: 'actor', label: 'Acteurs', type: 'entity', type_options: { choice_label: 'identityActor', multiple: 'true' } }
+                    - { property: 'genre', label: 'Genre', type: 'entity', type_options: { choice_label: 'type', multiple: 'true' } }
         Actor:
             class: App\Entity\Actor
+            label: 'Acteurs'
+            list:
+                title: "Liste des acteurs"
+                fields: [{ property: 'id', label: 'Id' }, { property: 'name', label: 'Nom' }, { property: 'firstname', label: 'Prénom' }, { property: 'birthdate', label: 'Date de naissance' }]
             form:
                 fields:
                     - { property: 'name', type: 'text', label: 'Nom' }
                     - { property: 'firstname', type: 'text', label: 'Prénom' }
-                    - { property: 'birthdate', type: 'datetime', label: 'Date de naissance' }
+                    - { property: 'birthdate', type: 'date', label: 'Date de naissance', type_options: { widget: 'single_text' } }
         Genre:
             class: App\Entity\Genre
+            label: 'Genres'
+            list:
+                title: "Liste des genres"
+                fields: [{ property: 'id', label: 'Id' }, { property: 'type', label: 'Genre' }]
             form:
                 fields:
                     - { property: 'type', type: 'text', label: 'Genre' }
         Production:
             class: App\Entity\Production
+            label: 'Productions'
+            list:
+                title: "Liste des producteurs de films"
+                fields: [{ property: 'id', label: 'Id' }, { property: 'name', label: 'Nom' }]
             form:
                 fields:
                     - { property: 'name', type: 'text', label: 'Nom' }
 
     design:
         brand_color: '#1ABC9C'
+        menu:
+            - { entity: 'Movie', icon: 'film'}
+            - { entity: 'Actor', icon: 'users'}
+            - { entity: 'Genre', icon: 'star'}
+            - { entity: 'Production', icon: 'play-circle'}
