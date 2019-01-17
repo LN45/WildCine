@@ -53,6 +53,11 @@ class Movie
      */
     private $production;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $image;
+
     public function __construct()
     {
         $this->genre = new ArrayCollection();
@@ -172,6 +177,18 @@ class Movie
     public function setProduction(?Production $production): self
     {
         $this->production = $production;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
