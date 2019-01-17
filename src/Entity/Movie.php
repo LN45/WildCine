@@ -58,6 +58,11 @@ class Movie
      */
     private $image;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Director", inversedBy="movies")
+     */
+    private $director;
+
     public function __construct()
     {
         $this->genre = new ArrayCollection();
@@ -189,6 +194,18 @@ class Movie
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getDirector(): ?Director
+    {
+        return $this->director;
+    }
+
+    public function setDirector(?Director $director): self
+    {
+        $this->director = $director;
 
         return $this;
     }
