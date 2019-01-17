@@ -24,12 +24,12 @@ class Movie
     private $title;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="date", nullable=true)
      */
     private $year;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
     private $critics;
 
@@ -76,12 +76,12 @@ class Movie
         return $this;
     }
 
-    public function getYear(): ?int
+    public function getYear(): ?\DateTimeInterface
     {
         return $this->year;
     }
 
-    public function setYear(?int $year): self
+    public function setYear(?\DateTimeInterface $year): self
     {
         $this->year = $year;
 
