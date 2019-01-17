@@ -29,7 +29,7 @@ class Actor
     private $firstname;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="date", nullable=true)
      */
     private $birthdate;
 
@@ -110,5 +110,13 @@ class Actor
         }
 
         return $this;
+    }
+
+    public function getIdentityActor()
+    {
+        $firstname=$this->getFirstname();
+        $name=$this->getName();
+        $identityActor=$firstname.' '.$name;
+        return $identityActor;
     }
 }
