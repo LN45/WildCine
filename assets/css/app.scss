@@ -1,3 +1,5 @@
+@import "~bootstrap/scss/bootstrap";
+
 body {
     font-family: "Century Gothic", 'Lato', sans-serif;
 }
@@ -6,15 +8,14 @@ a {
     text-decoration: none;
 }
 
-.et-hero-tabs,
-.et-slide {
+.et-hero-tabs {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     position: relative;
-    background: #eee;
+    background: #EAFDF4;
     text-align: center;
     padding: 0 2em;
     h1 {
@@ -56,7 +57,7 @@ a {
     font-size: 0.8rem;
     &:hover {
         color:white;
-        background: rgba(102,177,241,0.8);
+        background: #8EDCB7;
         transition: all 0.5s ease;
     }
 }
@@ -66,7 +67,7 @@ a {
     bottom: 0;
     width: 0;
     height: 6px;
-    background: #66B1F1;
+    background: #79C19F;
     transition: left 0.3s ease;
 }
 
@@ -83,4 +84,11 @@ a {
     .et-hero-tab {
         font-size: 1rem;
     }
+}
+
+/*Cover*/
+.cover_film {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
 }

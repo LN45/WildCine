@@ -8,9 +8,9 @@
         <h3></h3>
         <div class="et-hero-tabs-container">
             <a class="et-hero-tab" href="#tab-new">Nouveautés</a>
-            <a class="et-hero-tab" href="#tab-genre">Par catégories</a>
+            <a class="et-hero-tab" href="#tab-genre">Tous les films</a>
             <a class="et-hero-tab" href="#tab-critics">Les mieux notés</a>
-            <a class="et-hero-tab" href="#tab-review">A revoir</a>
+            <a class="et-hero-tab" href="#tab-review">Par catégories</a>
             <a class="et-hero-tab" href="#tab-other">Autres</a>
             <span class="et-hero-tab-slider"></span>
         </div>
@@ -18,25 +18,39 @@
 
     <!-- Main -->
     <main class="et-main">
-        <section class="et-slide" id="tab-new">
-            <h1>Nouveautés</h1>
+        <section id="tab-new">
+            <div class="row justify-content-center">
+                <h1>Nouveautés</h1>
+            </div>
             <h3>Les films de moins d'un an</h3>
         </section>
-        <section class="et-slide" id="tab-genre">
-            <h1>Par catégories</h1>
-            <h3></h3>
+        <section id="tab-genre">
+            <div>
+                <div class="row justify-content-center">
+                    <h1>Tous les films</h1>
+                </div>
+                    {% for movie in movies %}
+                        <div class="card mt-3 pt-2 pb-2 col-md-3 ml-3" style="width: 18rem;">
+                            <img class="cover_film" src="{{movie.image }}" alt="cover">
+                            <h5 class="card-title">{{ movie.title }}</h5>
+                        </div>
+                    {% endfor %}
+            </div>
         </section>
-        <section class="et-slide" id="tab-critics">
-            <h1>Les mieux notés</h1>
-            <h3>Classement des films</h3>
+        <section id="tab-critics">
+            <div class="row justify-content-center">
+                <h1>Les mieux notés</h1>
+            </div>
         </section>
-        <section class="et-slide" id="tab-review">
-            <h1>Les films à revoir</h1>
-            <h3></h3>
+        <section id="tab-review">
+            <div class="row justify-content-center">
+                <h1>Par catégories</h1>
+            </div>
         </section>
-        <section class="et-slide" id="tab-other">
-            <h1>Autres</h1>
-            <h3></h3>
+        <section id="tab-other">
+            <div class="row justify-content-center">
+                <h1>Autres</h1>
+            </div>
         </section>
     </main>
 {% endblock %}
