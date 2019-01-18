@@ -1,20 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <section class="et-hero-tabs">
+        <h1>WILD CINE</h1>
+        <h3></h3>
+        <div class="et-hero-tabs-container">
+            <a class="et-hero-tab" href="#tab-new">Nouveautés</a>
+            <a class="et-hero-tab" href="#tab-genre">Par catégories</a>
+            <a class="et-hero-tab" href="#tab-critics">Les mieux notés</a>
+            <a class="et-hero-tab" href="#tab-review">A revoir</a>
+            <a class="et-hero-tab" href="#tab-other">Autres</a>
+            <span class="et-hero-tab-slider"></span>
+        </div>
+    </section>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <!-- Main -->
+    <main class="et-main">
+        <section class="et-slide" id="tab-new">
+            <h1>Nouveautés</h1>
+            <h3>Les films de moins d'un an</h3>
+        </section>
+        <section class="et-slide" id="tab-genre">
+            <h1>Par catégories</h1>
+            <h3></h3>
+        </section>
+        <section class="et-slide" id="tab-critics">
+            <h1>Les mieux notés</h1>
+            <h3>Classement des films</h3>
+        </section>
+        <section class="et-slide" id="tab-review">
+            <h1>Les films à revoir</h1>
+            <h3></h3>
+        </section>
+        <section class="et-slide" id="tab-other">
+            <h1>Autres</h1>
+            <h3></h3>
+        </section>
+    </main>
+{% endblock %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/ln/Bureau/Projet_4/WildCine/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/ln/Bureau/Projet_4/WildCine/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('style') }}
 {% endblock %}
