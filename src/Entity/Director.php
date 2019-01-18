@@ -19,7 +19,7 @@ class Director
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $name;
 
@@ -96,5 +96,13 @@ class Director
         }
 
         return $this;
+    }
+
+    public function getIdentityDirector()
+    {
+        $firstname=$this->getFirstname();
+        $name=$this->getName();
+        $identityDirector=$firstname.' '.$name;
+        return $identityDirector;
     }
 }
