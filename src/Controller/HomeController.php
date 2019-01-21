@@ -19,9 +19,7 @@ class HomeController extends AbstractController
         $em = $this->getDoctrine()->getManager()->getRepository(Movie::class);
         $movies = $em->findAll();
 
-//        $bestMovies = $this->getDoctrine()
-//            ->getRepository(Movie::class)
-//            ->findByNote($movie);
+
 
 
 

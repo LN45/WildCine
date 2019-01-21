@@ -31,6 +31,8 @@ class MovieRepository extends ServiceEntityRepository
             ->orderBy('m.critics', 'ASC')
             ->getQuery()
             ->execute();
+        dump($this->createQueryBuilder('m'));
+        die('');
     }
 
 

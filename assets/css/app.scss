@@ -2,6 +2,7 @@
 
 body {
     font-family: "Century Gothic", 'Lato', sans-serif;
+    background: url("../images/background-1176764_1920.jpg");
 }
 
 a {
@@ -18,7 +19,7 @@ a {
     background: #EAFDF4;
     text-align: center;
     padding: 0 2em;
-    h1 {
+    h2 {
         font-size: 2rem;
         margin: 0;
         letter-spacing: 1rem;
@@ -28,6 +29,9 @@ a {
         letter-spacing: 0.3rem;
         opacity: 0.6;
     }
+}
+.tab {
+    font-size: 1rem;
 }
 
 .et-hero-tabs-container {
@@ -46,7 +50,8 @@ a {
     }
 }
 
-.et-hero-tab {
+.et-hero-tab,
+.tab {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,6 +67,7 @@ a {
     }
 }
 
+
 .et-hero-tab-slider {
     position: absolute;
     bottom: 0;
@@ -73,22 +79,151 @@ a {
 
 @media (min-width: 800px) {
     .et-hero-tabs,
+    .tab,
     .et-slide {
-        h1 {
+        h2 {
             font-size: 3rem;
         }
         h3 {
             font-size: 1rem;
         }
     }
-    .et-hero-tab {
+    .et-hero-tab,
+    .tab{
         font-size: 1rem;
     }
 }
 
+/*title*/
+h2 {
+    margin-top: 3vh;
+    color: #8EDCB7;
+    font-weight: bold;
+}
+h1 {
+    margin-top: 5vh;
+    margin-right: 50%;
+    color: #8EDCB7;
+    font-weight: bold;
+    font-size: 5em;
+}
+
+/*animation title*/
+.rubberBand {
+    -webkit-animation-name: rubberBand;
+    animation-name: rubberBand;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+@-webkit-keyframes rubberBand {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        -webkit-transform: scale3d(1.25, 0.75, 1);
+        transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+        -webkit-transform: scale3d(0.75, 1.25, 1);
+        transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+        -webkit-transform: scale3d(1.15, 0.85, 1);
+        transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+        -webkit-transform: scale3d(.95, 1.05, 1);
+        transform: scale3d(.95, 1.05, 1);
+    }
+    75% {
+        -webkit-transform: scale3d(1.05, .95, 1);
+        transform: scale3d(1.05, .95, 1);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+@keyframes rubberBand {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        -webkit-transform: scale3d(1.25, 0.75, 1);
+        transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+        -webkit-transform: scale3d(0.75, 1.25, 1);
+        transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+        -webkit-transform: scale3d(1.15, 0.85, 1);
+        transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+        -webkit-transform: scale3d(.95, 1.05, 1);
+        transform: scale3d(.95, 1.05, 1);
+    }
+    75% {
+        -webkit-transform: scale3d(1.05, .95, 1);
+        transform: scale3d(1.05, .95, 1);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
 /*Cover*/
-.cover_film {
-    width: 200px;
-    height: 300px;
-    object-fit: cover;
+.all_films {
+    margin-left: 1%;
+}
+.card_cover {
+    width: 220px;
+    height: 320px;
+    box-shadow: 2px 2px 5px 2px #343434;
+    .cover_film {
+        width: 200px;
+        height: 300px;
+        object-fit: cover;
+    }
+}
+
+/*homePage photo*/
+.backgroundHome {
+    background: url("../images/pellicule5.jpg") !important;
+    background-repeat: no-repeat !important;
+    background-position: top !important;
+    background-size: cover !important;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #8EDCB7;
+}
+.container_image:hover .overlay {
+    opacity: 1;
+}
+.title_movie {
+    color: black;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
