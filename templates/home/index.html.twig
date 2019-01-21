@@ -3,40 +3,58 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-    <section class="et-hero-tabs">
-        <h1>WILD CINE</h1>
+    <section class="et-hero-tabs backgroundHome">
+        <h1 class="rubberBand">WILD CINE</h1>
         <h3></h3>
         <div class="et-hero-tabs-container">
             <a class="et-hero-tab" href="#tab-new">Nouveautés</a>
-            <a class="et-hero-tab" href="#tab-genre">Par catégories</a>
+            <a class="et-hero-tab" href="#tab-genre">Tous les films</a>
             <a class="et-hero-tab" href="#tab-critics">Les mieux notés</a>
-            <a class="et-hero-tab" href="#tab-review">A revoir</a>
+            <a class="et-hero-tab" href="#tab-review">Par catégories</a>
             <a class="et-hero-tab" href="#tab-other">Autres</a>
+            <a class="tab" href="/admin">Admin</a>
             <span class="et-hero-tab-slider"></span>
         </div>
     </section>
 
     <!-- Main -->
     <main class="et-main">
-        <section class="et-slide" id="tab-new">
-            <h1>Nouveautés</h1>
-            <h3>Les films de moins d'un an</h3>
+        <section id="tab-new">
+            <div class="row justify-content-center">
+                <h2>Nouveautés</h2>
+            </div>
         </section>
-        <section class="et-slide" id="tab-genre">
-            <h1>Par catégories</h1>
-            <h3></h3>
+        <section id="tab-genre">
+            <div class="row justify-content-center">
+                <h2>Tous les films</h2>
+            </div>
+                <div class="row all_films">
+                    {% for movie in movies %}
+                    <div class="col-lg-2 col-md-3 col-xs-4 justify-content-center">
+                        <div class="card mt-3 pt-2 pb-2 ml-3 mr-3 card_cover container_image">
+                            <img class="cover_film mx-auto" src="{{movie.image }}" alt="cover">
+                            <div class="overlay">
+                                <h5 class="card-title mx-auto mt-2 title_movie">{{ movie.title }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
         </section>
-        <section class="et-slide" id="tab-critics">
-            <h1>Les mieux notés</h1>
-            <h3>Classement des films</h3>
+        <section id="tab-critics">
+            <div class="row justify-content-center">
+                <h2>Les mieux notés</h2>
+            </div>
         </section>
-        <section class="et-slide" id="tab-review">
-            <h1>Les films à revoir</h1>
-            <h3></h3>
+        <section id="tab-review">
+            <div class="row justify-content-center">
+                <h2>Par catégories</h2>
+            </div>
         </section>
-        <section class="et-slide" id="tab-other">
-            <h1>Autres</h1>
-            <h3></h3>
+        <section id="tab-other">
+            <div class="row justify-content-center">
+                <h2>Autres</h2>
+            </div>
         </section>
     </main>
 {% endblock %}
