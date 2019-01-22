@@ -60,7 +60,12 @@ easy_admin:
             form:
                 fields:
                     - { property: 'name', type: 'text', label: 'Nom' }
-
+        User:
+            class: App\Entity\User
+            label: 'Utilisateurs'
+            list:
+                title: "Liste des utilisateurs"
+                fields: [{ property: 'id', label: 'Id' }, { property: 'email', label: 'Email' }, { property: 'password', label: 'Password' }, { property: 'roles', label: 'Role' }]
     design:
         brand_color: '#1ABC9C'
         menu:
@@ -69,3 +74,4 @@ easy_admin:
             - { entity: 'Genre', icon: 'star'}
             - { entity: 'Director', icon: 'play'}
             - { entity: 'Production', icon: 'credit-card'}
+            - { entity: 'User', icon: 'users'}
