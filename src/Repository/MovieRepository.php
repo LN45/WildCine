@@ -20,22 +20,39 @@ class MovieRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param $note
      * @return mixed
+     * @throws \Exception
      */
-    public function findByNote($note)
+    public function findMoviesBetweenTwoDates()
     {
-        return $this->createQueryBuilder('m')
-            ->andWhere('m.critics >= :4')
-            ->setParameter('note', $note)
-            ->orderBy('m.critics', 'ASC')
-            ->getQuery()
-            ->execute();
-        dump($this->createQueryBuilder('m'));
-        die('');
+        $movieDate = new \DateTime();
+        $movieDate->sub(new \DateInterval('P2Y'));
+
+        $qb=$this->createQueryBuilder('m')
+            ->where('m.year >= :date')
+            ->setParameter('date', $movieDate->format('Y-m-d'))
+            ->getQuery();
+
+        $results = $qb->getResult();
+
+        return $results;
     }
 
+    /**
+     * @return mixed
+     */
+    public function findBestMovies()
+    {
+        $bestMovie = "4";
+        $qb=$this->createQueryBuilder('m')
+            ->where('m.critics >= :critics')
+            ->setParameter('critics', $bestMovie)
+            ->getQuery();
 
+        $results = $qb->getResult();
+
+        return $results;
+    }
 
 //    public function findOneBySomeField($value): ?Movie
 //    {

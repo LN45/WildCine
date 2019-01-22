@@ -23,6 +23,7 @@ a {
         font-size: 2rem;
         margin: 0;
         letter-spacing: 1rem;
+        text-shadow: 4px 1px 3px #EAFDF4;
     }
     h3 {
         font-size: 1rem;
@@ -62,8 +63,11 @@ a {
     font-size: 0.8rem;
     &:hover {
         color:white;
+        font-weight: bold;
         background: #8EDCB7;
         transition: all 0.5s ease;
+        text-decoration: none;
+        text-shadow: 3px 1px 2px #000;
     }
 }
 
@@ -84,9 +88,6 @@ a {
         h2 {
             font-size: 3rem;
         }
-        h3 {
-            font-size: 1rem;
-        }
     }
     .et-hero-tab,
     .tab{
@@ -99,13 +100,16 @@ h2 {
     margin-top: 3vh;
     color: #8EDCB7;
     font-weight: bold;
+    text-shadow: 4px 1px 3px #000;
+    text-align: center;
 }
 h1 {
     margin-top: 5vh;
     margin-right: 50%;
     color: #8EDCB7;
     font-weight: bold;
-    font-size: 5em;
+    font-size: 6em;
+    text-shadow: 4px 1px 3px #000;
 }
 
 /*animation title*/
@@ -226,4 +230,12 @@ h1 {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
+}
+
+p, h5, h6 {
+    color: white;
+}
+h6 {
+   font-weight: bold;
+   font-size: 1.5em;
 }
