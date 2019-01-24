@@ -27,6 +27,7 @@ class HomeController extends AbstractController
         $moviesnew = $movieRepository->findMoviesBetweenTwoDates();
         $bestmovies = $movieRepository->findBestMovies();
 
+
         return $this->render('home/index.html.twig', [
             'movies' => $movies,
             'moviesnew' => $moviesnew,
