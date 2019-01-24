@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Acteur{% endblock %}
+
+{% block body %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-lg-12 col-md-12 col-xs-12 justify-content-center">
+            <h2 class="mt-2 mb-2 mx-auto">{{ actor.firstname }} {{ actor.name }}</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-7 col-md-7 col-xs-7 justify-content-center">
+            <h5 class="mt-5">Date de naissance : <span>{{ actor.birthdate|date('d/m/Y') }}</span></h5>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-7 col-md-7 col-xs-7 justify-content-center">
+            <h5 class="mt-5">Films : {% for movie in movies %} <a href="{{ path('movie_show', {'id': movie.id}) }}">{{ movie.title }}</a>{% endfor %}</h5>
+        </div>
+    </div>
+
+{% endblock %}

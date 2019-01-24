@@ -9,7 +9,7 @@ easy_admin:
             label: 'Films'
             list:
                 title: "Liste des films"
-                fields: [{ property: 'id', label: 'Id' }, { property: 'title', label: 'Titre' }, { property: 'year', label: 'Date de sortie' }, { property: 'critics', label: 'Note' }, { property: 'actor', label: 'Acteurs' }, { property: 'genre', label: 'Genre' }, { property: 'synopsis', label: 'Synopsis' }]
+                fields: [{ property: 'id', label: 'Id' }, { property: 'title', label: 'Titre' }, { property: 'year', label: 'Date de sortie' }, { property: 'image', type: 'image', label: 'Jaquette' }, { property: 'critics', label: 'Note' }, { property: 'actor', label: 'Acteurs' }, { property: 'genre', label: 'Genre' }, { property: 'synopsis', label: 'Synopsis' }]
             form:
                 fields:
                     - { property: 'title', type: 'text', label: 'Titre' }

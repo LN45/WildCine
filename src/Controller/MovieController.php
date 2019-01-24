@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Actor;
 use App\Entity\Movie;
 use App\Repository\GenreRepository;
 use App\Repository\MovieRepository;
@@ -18,8 +19,10 @@ class MovieController extends AbstractController
      */
     public function show(Movie $movie): Response
     {
+        $actors=$movie->getActor();
         return $this->render('movie/show.html.twig', [
             'movie' => $movie,
+            'actors' => $actors
         ]);
     }
 }
