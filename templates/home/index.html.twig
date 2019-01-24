@@ -3,11 +3,13 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
+    <div class="row">
+        <div class="offset-11 col">
+            <a href="/logout"><i class="fas fa-user-times mt-2"></i></a>
+        </div>
+    </div>
     <section class="et-hero-tabs backgroundHome">
         <h1 class="rubberBand">WILD CINE</h1>
-        {% if user is defined %}
-        <h3>Bienvenue {{ user.email }}</h3>
-        {% endif %}
         <div class="et-hero-tabs-container">
             <a class="et-hero-tab" href="#tab-new">Nouveautés</a>
             <a class="et-hero-tab" href="#tab-genre">Tous les films</a>
