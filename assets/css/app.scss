@@ -1,4 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700|Yanone+Kaffeesatz:300,400,700');
 
 body {
     font-family: "Century Gothic", 'Lato', sans-serif;
@@ -241,4 +243,14 @@ p, h5, h6 {
 h6 {
    font-weight: bold;
    font-size: 1.5em;
+}
+
+.button_connexion {
+    background-color: #A7C1CE;
+    color: #061724;
+    margin-left: 45%;
+}
+.fa-user-times{
+    font-size: 2em;
+    color: #A7C1CE;
 }
