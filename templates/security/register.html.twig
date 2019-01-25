@@ -3,10 +3,12 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-{{ form_start(form) }}
+    <div class="container register_container">
+        {{ form_start(form) }}
         {{ form_widget(form) }}
-    <button class="btn btn-lg btn-primary">
-        Sign in
-    </button>
-{{ form_end(form) }}
+        <button class="btn btn-lg mt-5 button_connexion">
+            Sign in
+        </button>
+        {{ form_end(form) }}
+    </div>
 {% endblock %}
