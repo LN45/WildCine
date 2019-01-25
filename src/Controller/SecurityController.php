@@ -44,6 +44,7 @@ class SecurityController extends AbstractController
                          ));
             $em->persist($user);
             $em->flush();
+            $this->addFlash('success', 'Votre compte à bien été enregistré.');
         }
 
         return $this->render('security/register.html.twig', ['form'=> $form->createView()]);

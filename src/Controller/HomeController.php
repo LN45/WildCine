@@ -26,13 +26,16 @@ class HomeController extends AbstractController
         $movies = $this->getDoctrine()->getManager()->getRepository(Movie::class)->findAll();
         $moviesnew = $movieRepository->findMoviesBetweenTwoDates();
         $bestmovies = $movieRepository->findBestMovies();
-
+        $actors = $this->getDoctrine()->getRepository(Actor::class)->findAll();
+        $genres = $this->getDoctrine()->getRepository(Genre::class)->findAll();
 
         return $this->render('home/index.html.twig', [
             'movies' => $movies,
             'moviesnew' => $moviesnew,
             'bestmovies' => $bestmovies,
-            'user' => $user
+            'user' => $user,
+            'actors' => $actors,
+            'genres' => $genres
         ]);
     }
 }
