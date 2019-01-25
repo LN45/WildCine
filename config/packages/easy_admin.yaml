@@ -1,5 +1,5 @@
 easy_admin:
-    site_name: '<img src="https://i.goopics.net/wbLRD.png" height="60" width="70"  /> Admin'
+    site_name: '<a href="/home"><img src="https://i.goopics.net/wbLRD.png" height="60" width="70"  /></a> Admin'
     formats:
         date: 'd/m/Y'
         number: '%0.1f'

@@ -3,6 +3,16 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="row mt-3 messagesflash align-items-center">
+                <div class="col-lg-6 mx-auto alert alert-dismissible alert-{{ label }} flash-{{ label }} fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ message }}
+                </div>
+            </div>
+        {% endfor %}
+    {% endfor %}
     <div class="container register_container">
         {{ form_start(form) }}
         {{ form_widget(form) }}
@@ -10,5 +20,10 @@
             Sign in
         </button>
         {{ form_end(form) }}
+    </div>
+    <div class="register">
+        <a href="{{ path('app_login') }}" >
+            <h2 class="mx-auto">Me connecter</h2>
+        </a>
     </div>
 {% endblock %}
