@@ -3,7 +3,7 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<form method="post">
+<form class="form_login" method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -23,7 +23,11 @@
             Connexion
         </button>
     </div>
-
+    <div class="register">
+        <a href="{{ path('app_register') }}" >
+            <h2 class="mx-auto">Pas de compte ? Créer un compte</h2>
+            </a>
+    </div>
 
 
 </form>

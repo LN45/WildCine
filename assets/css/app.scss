@@ -255,10 +255,16 @@ h6 {
     color: #A7C1CE;
 }
 .user_email {
-
     margin-right: 50%;
     color: #A7C1CE;
     font-weight: bold;
     font-size: 6em;
     text-shadow: 4px 1px 3px #000;
+}
+.form_login {
+    .register {
+        a {
+            text-decoration: none;
+        }
+    }
 }
