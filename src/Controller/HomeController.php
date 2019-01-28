@@ -35,9 +35,11 @@ class HomeController extends AbstractController
 
         if ($form->isSubmitted()){
             $data = $form->getData();
-            $movieSearch = $movieRepository->search($data['search']);
+            $movies = $movieRepository->search($data['search']);
+            $result=count($movies);
             return $this->render("movie/search.html.twig", [
-                'movieSearch' => $movieSearch
+                'movies' => $movies,
+                'result' => $result
             ]);
         }
 

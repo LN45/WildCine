@@ -26,12 +26,13 @@ easy_admin:
             label: 'Acteurs'
             list:
                 title: "Liste des acteurs"
-                fields: [{ property: 'id', label: 'Id' }, { property: 'name', label: 'Nom' }, { property: 'firstname', label: 'Prénom' }, { property: 'birthdate', label: 'Date de naissance' }]
+                fields: [{ property: 'id', label: 'Id' }, { property: 'name', label: 'Nom' }, { property: 'firstname', label: 'Prénom' }, { property: 'picture', type: 'image', label: 'Image' },{ property: 'birthdate', label: 'Date de naissance' }]
             form:
                 fields:
                     - { property: 'name', type: 'text', label: 'Nom' }
                     - { property: 'firstname', type: 'text', label: 'Prénom' }
                     - { property: 'birthdate', type: 'date', label: 'Date de naissance', type_options: { widget: 'single_text' } }
+                    - { property: 'picture', type: 'text', label: 'Image' }
         Genre:
             class: App\Entity\Genre
             label: 'Genres'
