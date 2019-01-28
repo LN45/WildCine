@@ -201,6 +201,30 @@ h1 {
         object-fit: cover;
     }
 }
+.card_cover_show {
+    width: 440px;
+    height: 640px;
+    box-shadow: 2px 2px 5px 2px #061724;
+    .cover_film_show {
+        width: 400px;
+        height: 600px;
+        object-fit: cover;
+    }
+}
+.all_films {
+    .container_image {
+        .cover_film {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+        }
+    }
+}
+.container_image:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+}
 
 /*homePage photo*/
 .backgroundHome {
@@ -274,3 +298,14 @@ h6 {
     }
 }
 
+.search_form {
+    height: 30px;
+}
+.search {
+    margin-left: 37%;
+    background-color:#061724;
+    color: white;
+    border-color: #A7C1CE;
+    width: 500px;
+    height: 50px;
+}
