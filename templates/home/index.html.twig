@@ -26,7 +26,7 @@
     <main class="et-main">
         <section id="tab-new">
             <div class="row justify-content-center">
-                <h2>Nouveautés</h2>
+                <h2 class="mt-5 mb-5">Nouveautés</h2>
             </div>
             <div class="row all_films">
                 {% for movienew in moviesnew %}
@@ -45,11 +45,18 @@
         </section>
         <section id="tab-genre">
             <div class="row justify-content-center">
-                <h2>Tous les films</h2>
+                <h2 class="mt-5 mb-5">Tous les films</h2>
             </div>
-            <div class="row all_films">
+            <div class="row">
+                <div class="col search_form">
+                    {{ form_start(form) }}
+                    {{ form_widget(form.search) }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+            <div class="row all_films mt-5">
                 {% for movie in movies %}
-                    <a href="{{ path('movie_show', {'id': movie.id}) }}">
+                    <a class="mb-5" href="{{ path('movie_show', {'id': movie.id}) }}">
                         <div class="col-lg-2 col-md-3 col-xs-4 justify-content-center">
                             <div class="card mt-3 pt-2 pb-2 ml-3 mr-3 card_cover container_image">
                                 <img class="cover_film mx-auto" src="{{movie.image }}" alt="cover">
@@ -64,12 +71,12 @@
         </section>
         <section id="tab-critics">
             <div class="row justify-content-center">
-                <h2>Les mieux notés</h2>
+                <h2 class="mt-5 mb-5">Les mieux notés</h2>
             </div>
             <div class="row all_films">
                 {% for bestmovie in bestmovies %}
                     <a href="{{ path('movie_show', {'id': bestmovie.id}) }}">
-                        <div class="col-lg-2 col-md-3 col-xs-4 justify-content-center">
+                        <div class="col-lg-2 col-md-3 col-xs-4 justify-content-center mt-5 mb-5">
                             <div class="card mt-3 pt-2 pb-2 ml-3 mr-3 card_cover container_image">
                                 <img class="cover_film mx-auto" src="{{bestmovie.image }}" alt="cover">
                                 <div class="overlay">
@@ -81,32 +88,33 @@
                 {% endfor %}
             </div>
         </section>
-        <section id="tab-review">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <h2 class="mt-5">Par catégories</h2>
-                </div>
-                <div class="col-3">
-                    <label class="label_select" for="genre">Genre</label>
-                    <select class="form-control" id="genre" name="genre">
-                        {% for genre in genres %}
-                            <option value="{{ genre.type }}">{{ genre.type }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <div class="col-3">
-                    <label class="label_select" for="actor">Acteurs</label>
-                    <select class="form-control" id="actor">
-                        {% for actor in actors %}
-                            <option value="{{ actor.name }}{{ actor.firstname }}">{{ actor.name }} {{ actor.firstname }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-            </div>
-        </section>
+        {#<section id="tab-review">#}
+            {#<div class="row justify-content-center">#}
+                {#<div class="col-12">#}
+                    {#<h2 class="mt-5 mb-5">Par catégories</h2>#}
+                {#</div>#}
+                {#<div class="col-3">#}
+                    {#<label class="label_select" for="genre">Genre</label>#}
+                    {#<select class="form-control" id="genre" name="genre">#}
+                        {#{% for genre in genres %}#}
+                            {#<option value="{{ genre.type }}">{{ genre.type }}</option>#}
+                        {#{% endfor %}#}
+                    {#</select>#}
+                {#</div>#}
+                {#<div class="col-3">#}
+                    {#<label class="label_select" for="actor">Acteurs</label>#}
+                    {#<select class="form-control" id="actor">#}
+                        {#{% for actor in actors %}#}
+                            {#<option value="{{ actor.name }}{{ actor.firstname }}">{{ actor.name }} {{ actor.firstname }}</option>#}
+                        {#{% endfor %}#}
+                    {#</select>#}
+                {#</div>#}
+            {#</div>#}
+        {#</section>#}
         <section id="tab-other">
             <div class="row justify-content-center">
                 <h2>Autres</h2>
+
             </div>
         </section>
     </main>
