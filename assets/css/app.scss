@@ -278,6 +278,19 @@ h6 {
     font-size: 2em;
     color: #A7C1CE;
 }
+.navvbar_cine {
+    .cine_navbar {
+        .navbar-nav {
+            .home_button {
+                color: #A7C1CE;
+                font-size: 1.8rem;
+            }
+        }
+    }
+}
+
+
+
 .user_email {
     margin-right: 50%;
     color: #A7C1CE;
@@ -519,4 +532,79 @@ h6 {
 }
 #tab-genre {
     margin-top : 10%;
+}
+
+/*navbar*/
+.navbar_cine {
+    background-color: #1F3D52;
+}
+.clap {
+    box-shadow:0 0 100px #A7C1CE,0 0 100px #1F3D52;
+}
+
+.logout_button {
+    margin-left: 165vh;
+}
+.title_film {
+    font-size: 3.5rem;
+}
+.image_film {
+    box-shadow:0 0 100px #A7C1CE,0 0 100px #1F3D52;
+}
+.name_actor {
+    margin-left: 15%;
+}
+
+/*actorCard*/
+.content-box-holder{
+    width: 420px;
+    height: 100%;
+    position: relative;
+    perspective:100vw;
+
+}
+.content-box{
+    position: relative;
+    display: grid;
+    grid-template-rows: 2fr 1fr 2fr;
+    height: 700px;
+    width: 100%;
+
+    background-color: #1F3D52;
+    border-radius: 0.4rem;
+    border-right: 5px solid #1F3D52;
+    transform: rotateX(0deg) rotateY(-30deg);
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 4px,rgba(0, 0, 0, 0.05) 35px 0px 30px;
+    transition: all 0.3s ease-out;
+    transition-property: transform, border-width, box-shadow;
+}
+.content-box:hover{
+    transform: rotateX(0deg) rotateY(0deg);
+    border-width: 0px;
+    box-shadow: rgba(0, 0, 0, 0.4) 1px 1px 5px,rgba(0, 0, 0, 0.2) 1px 1px 8px;
+    transition: all 0.5s ease-out;
+    transition-property: border-width, transform, box-shadow;
+}
+.content-image{
+    background-size: cover;
+}
+.picture_actor {
+    width: 420px;
+    height: 700px;
+
+}
+.container_actor {
+    box-shadow:0 0 100px #A7C1CE,0 0 100px #1F3D52;
+}
+
+.title_movie_actor {
+    a {
+        text-decoration: none;
+        color : white;
+    }
+    a:hover {
+        text-decoration: none;
+        color : #A7C1CE;
+    }
 }

@@ -3,15 +3,16 @@
 {% block title %}Movies{% endblock %}
 
 {% block body %}
+    {% include '_navbar.html.twig' %}
     <div class="row justify-content-center mt-5 mb-5">
-        <h2 class="rubberBand">{{ result }} résultat(s) pour cette recherche : </h2>
+        <h2 class="rubberBand title_film">{{ result }} résultat(s) pour cette recherche : </h2>
     </div>
     <div class="row all_films mt-5 mb-5">
         {% for movie in movies %}
             <a href="{{ path('movie_show', {'id': movie.id}) }}">
                 <div class="col-lg-2 col-md-3 col-xs-4 justify-content-center">
                     <div class="card mt-3 pt-2 pb-2 ml-3 mr-3 card_cover container_image">
-                        <img class="cover_film mx-auto" src="{{movie.image }}" alt="cover">
+                        <img class="cover_film mx-auto image_film" src="{{movie.image }}" alt="cover">
                         <div class="overlay">
                             <h5 class="card-title mx-auto mt-2 title_movie">{{ movie.title }}</h5>
                         </div>
