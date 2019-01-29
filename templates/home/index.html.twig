@@ -4,51 +4,55 @@
 
 {% block body %}
     <div class="row">
-        <div class="offset-11 col">
+        <div class="offset-9 col-2 pseudo pt-3">
+           <p>{{ user.pseudo }}</p>
+        </div>
+        <div class="col-1">
             <a href="/logout"><i class="fas fa-user-times mt-2"></i></a>
         </div>
     </div>
     <section class="et-hero-tabs backgroundHome">
-        <h3 class="user_email">Bienvenue {{ user.email }}</h3>
+        <h3 class="user_email">Bienvenue {{ user.pseudo }} !</h3>
         <h1 class="rubberBand">WILD CINE</h1>
-        <div class="et-hero-tabs-container">
+
+
+        <div class="et-hero-tabs-container justify-content-center">
             <a class="et-hero-tab" href="#tab-new">Nouveautés</a>
             <a class="et-hero-tab" href="#tab-genre">Tous les films</a>
             <a class="et-hero-tab" href="#tab-critics">Les mieux notés</a>
-            <a class="et-hero-tab" href="#tab-review">Par catégories</a>
-            <a class="et-hero-tab" href="#tab-other">Autres</a>
-            <a class="tab" href="/admin">Admin</a>
+            <a class="tab" href="/admin"><i class="fas fa-cogs"></i></a>
             <span class="et-hero-tab-slider"></span>
+        </div>
+
+    </section>
+
+    <section id="tab-new">
+        <div class="row justify-content-center">
+            <h2 class="mt-5 mb-5"><i class="fas fa-chevron-up"></i>  Nouveautés  <i class="fas fa-chevron-up"></i></h2>
+        </div>
+        <div class="row all_films mb-5">
+            <div class="card-carousel">
+            {% for movienew in moviesnew %}
+                <div class="my-card card_carousel">
+                    <img class="cover_film mx-auto carousel_film" src="{{movienew.image }}" alt="cover">
+                    <div>
+                        <a href="{{ path('movie_show', {'id': movienew.id}) }}">
+                            <h3 class="mt-2">{{ movienew.title }}</h3>
+                        </a>
+                    </div>
+
+                </div>
+            {% endfor %}
+            </div>
         </div>
     </section>
 
-    <!-- Main -->
-    <main class="et-main">
-        <section id="tab-new">
-            <div class="row justify-content-center">
-                <h2 class="mt-5 mb-5">Nouveautés</h2>
-            </div>
-            <div class="row all_films">
-                {% for movienew in moviesnew %}
-                    <a href="{{ path('movie_show', {'id': movienew.id}) }}">
-                        <div class="col-lg-2 col-md-3 col-xs-4 justify-content-center">
-                            <div class="card mt-3 pt-2 pb-2 ml-3 mr-3 card_cover container_image">
-                                <img class="cover_film mx-auto" src="{{movienew.image }}" alt="cover">
-                                <div class="overlay">
-                                    <h5 class="card-title mx-auto mt-2 title_movie">{{ movienew.title }}</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                {% endfor %}
-            </div>
-        </section>
         <section id="tab-genre">
             <div class="row justify-content-center">
-                <h2 class="mt-5 mb-5">Tous les films</h2>
+                <h2 class="mt-5 mb-5"><i class="fas fa-film"></i>  Tous les films  <i class="fas fa-film"></i></h2>
             </div>
             <div class="row">
-                <div class="col search_form">
+                <div class="col search_form mb-5">
                     {{ form_start(form) }}
                     {{ form_widget(form.search) }}
                     {{ form_end(form) }}
@@ -71,7 +75,7 @@
         </section>
         <section id="tab-critics">
             <div class="row justify-content-center">
-                <h2 class="mt-5 mb-5">Les mieux notés</h2>
+                <h2 class="mt-5 mb-5"><i class="far fa-star"></i>  Les mieux notés  <i class="far fa-star"></i></h2>
             </div>
             <div class="row all_films">
                 {% for bestmovie in bestmovies %}
@@ -86,35 +90,6 @@
                         </div>
                     </a>
                 {% endfor %}
-            </div>
-        </section>
-        {#<section id="tab-review">#}
-            {#<div class="row justify-content-center">#}
-                {#<div class="col-12">#}
-                    {#<h2 class="mt-5 mb-5">Par catégories</h2>#}
-                {#</div>#}
-                {#<div class="col-3">#}
-                    {#<label class="label_select" for="genre">Genre</label>#}
-                    {#<select class="form-control" id="genre" name="genre">#}
-                        {#{% for genre in genres %}#}
-                            {#<option value="{{ genre.type }}">{{ genre.type }}</option>#}
-                        {#{% endfor %}#}
-                    {#</select>#}
-                {#</div>#}
-                {#<div class="col-3">#}
-                    {#<label class="label_select" for="actor">Acteurs</label>#}
-                    {#<select class="form-control" id="actor">#}
-                        {#{% for actor in actors %}#}
-                            {#<option value="{{ actor.name }}{{ actor.firstname }}">{{ actor.name }} {{ actor.firstname }}</option>#}
-                        {#{% endfor %}#}
-                    {#</select>#}
-                {#</div>#}
-            {#</div>#}
-        {#</section>#}
-        <section id="tab-other">
-            <div class="row justify-content-center">
-                <h2>Autres</h2>
-
             </div>
         </section>
     </main>
